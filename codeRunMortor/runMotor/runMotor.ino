@@ -35,30 +35,33 @@ void setup() {
 
   // KÍCH HOẠT ĐỘNG CƠ 50%
   // Serial.println("CẢNH BÁO: Đang kích hoạt 4 động cơ chạy 50% ga!");
-  // esc1.writeMicroseconds(1200);
-  // esc2.writeMicroseconds(1200);
-  // esc3.writeMicroseconds(1200);
-  // esc4.writeMicroseconds(1200);
+  esc1.writeMicroseconds(1100);
+  esc2.writeMicroseconds(1100);
+  esc3.writeMicroseconds(1100);
+  esc4.writeMicroseconds(1100);
 }
 
 void loop() {
-  // Giữ nguyên mức 50% liên tục trong vòng lặp
-  for(int i=1000; i< 1600; i+=5){
-      esc1.writeMicroseconds(i);
-      esc2.writeMicroseconds(i);
-      esc3.writeMicroseconds(i);
-      esc4.writeMicroseconds(i);
-      delay(50);
-  }
-
-    for(int i=1600; i> 1000; i-=5){
-      esc1.writeMicroseconds(i);
-      esc2.writeMicroseconds(i);
-      esc3.writeMicroseconds(i);
-      esc4.writeMicroseconds(i);
-      delay(50);
+  for(int i = 1100; i<1400; i+=10){
+    esc1.writeMicroseconds(i);
+    esc2.writeMicroseconds(i);
+    esc3.writeMicroseconds(i);
+    esc4.writeMicroseconds(i);
+    delay(100);
   }
 
   delay(1000);
+
+  for(int i = 1400; i>1100; i-=10){
+    esc1.writeMicroseconds(i);
+    esc2.writeMicroseconds(i);
+    esc3.writeMicroseconds(i);
+    esc4.writeMicroseconds(i);
+    delay(100);
+  }
+
+  delay(1000);
+
+
 
 }
