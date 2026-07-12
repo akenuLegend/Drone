@@ -42,7 +42,60 @@ void setup() {
 }
 
 void loop() {
-  sensors_event_t a, g, temp;
+  // sensors_event_t a, g, temp;
+  // mpu.getEvent(&a, &g, &temp);
+
+  // // 1. Tính khoảng thời gian dt (giây) giữa 2 lần đọc
+  // unsigned long currentTime = millis();
+  // float dt = (currentTime - mpuLastTime) / 1000.0;
+  // mpuLastTime = currentTime;
+
+  // // 2. Tính góc từ Gia tốc (Accelerometer) - đơn vị: Độ
+  // // Biến đổi đơn vị từ rad sang độ qua hệ số 180 / PI ~ 57.29578
+  // float pitchAcc = atan2(a.acceleration.y, sqrt(a.acceleration.x * a.acceleration.x + a.acceleration.z * a.acceleration.z)) * 57.29578;
+  // float rollAcc  = atan2(-a.acceleration.x, a.acceleration.z) * 57.29578;
+
+  // // 3. Tính vận tốc góc từ Gyro (đổi từ rad/s sang độ/s)
+  // float gyroXRate = g.gyro.x * 57.29578;
+  // float gyroYRate = g.gyro.y * 57.29578;
+  // float gyroZRate = g.gyro.z * 57.29578;
+
+  // // 4. Áp dụng Bộ lọc bù (Complementary Filter)
+  // pitch = alpha * (pitch + gyroXRate * dt) + (1.0 - alpha) * pitchAcc;
+  // roll  = alpha * (roll + gyroYRate * dt) + (1.0 - alpha) * rollAcc;
+  
+  // // Yaw không có gốc tọa độ từ Accel nên tính thuần bằng tích phân Gyro
+  // yaw   = yaw + gyroZRate * dt; 
+
+  // // Giới hạn hiển thị góc Yaw trong khoảng -180 đến 180 độ cho đẹp
+  // if (yaw > 180) yaw -= 360;
+  // if (yaw < -180) yaw += 360;
+
+  // // 5. Hiển thị lên màn hình OLED
+  // display.clearDisplay();
+  
+  // display.setCursor(0, 0);
+  // display.println("--- ORIENTATION ---");
+
+  // display.setCursor(0, 20);
+  // display.print("Pitch (X) : "); 
+  // display.print(pitch, 1);
+  // display.print((char)247); // Ký tự độ (°)
+
+  // display.setCursor(0, 35);
+  // display.print("Roll  (Y) : "); 
+  // display.print(roll, 1);
+  // display.print((char)247);
+
+  // display.setCursor(0, 50);
+  // display.print("Yaw   (Z) : "); 
+  // display.print(yaw, 1);
+  // display.print((char)247);
+
+  // display.display();
+
+  // delay(20); // Chu kỳ lấy mẫu nhỏ (20ms tương đương 50Hz) giúp tích phân chính xác hơn
+   sensors_event_t a, g, temp;
   mpu.getEvent(&a, &g, &temp);
 
   // 1. Tính khoảng thời gian dt (giây) giữa 2 lần đọc
@@ -94,5 +147,5 @@ void loop() {
 
   display.display();
 
-  delay(20); // Chu kỳ lấy mẫu nhỏ (20ms tương đương 50Hz) giúp tích phân chính xác hơn
+  delay(20);
 }
