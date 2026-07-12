@@ -36,9 +36,9 @@
 // ================================================================
 //  PIN ESC
 // ================================================================
-const int ESC_M1 = 26; // Front-Left  (FL)
-const int ESC_M2 = 13; // Front-Right (FR)
-const int ESC_M3 = 14; // Back-Right  (BR)
+const int ESC_M1 = 13; // Front-Left  (FL)
+const int ESC_M2 = 14; // Front-Right (FR)
+const int ESC_M3 = 26; // Back-Right  (BR)
 const int ESC_M4 = 27; // Back-Left   (BL)
 
 Servo esc1, esc2, esc3, esc4;
