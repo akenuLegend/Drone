@@ -255,10 +255,11 @@ void loop() {
   int m4 = constrain((int)(BASE_THROTTLE - pitchOut + rollOut), MIN_THROTTLE, MAX_THROTTLE); // BL
 
   // ---- 6. Xuất xung tới ESC ----
+
   esc1.writeMicroseconds(m1 - m1*0.025);
   esc2.writeMicroseconds(m2 + m2 * 0.08);
-  esc3.writeMicroseconds(m3 + m2 * 0.08);
-  esc4.writeMicroseconds(m4 - m1*0.04);
+  esc3.writeMicroseconds(m3 + m3 * 0.08);   // ← dùng m2 thay vì m3
+  esc4.writeMicroseconds(m4 - m4*0.04);     // ← dùng m1 thay vì m4
 
   // ---- 7. Debug Serial (50Hz — dùng Serial Monitor baud 115200) ----
   Serial.print("P:");     Serial.print(pitch,    1);
