@@ -1,0 +1,4 @@
+file nạp chính esp32 30pin (drone) -> drone_esp32now_final
+file nạp chính esp32 38pin để truyển và debug tín hiệu -> node_b_sender
+file in đại chỉ mac -> print_mac
+hai file phụ test ESPNOW -> espnow_esp_30pin/32pin
